@@ -1,0 +1,24 @@
+def matrix_mul(a, b):
+    return [[
+        a[0][0] * b[0][0] + a[0][1] * b[1][0],
+        a[0][0] * b[0][1] + a[0][1] * b[1][1]
+    ], [
+        a[1][0] * b[0][0] + a[1][1] * b[1][0],
+        a[1][0] * b[0][1] + a[1][1] * b[1][1]
+    ]]
+
+def pow(p):
+    m = [[1, 1], [1, 0]]
+    t = [[1, 0], [0, 1]]
+    while p:
+        if p % 2:
+            t = matrix_mul(t, m)
+        m = matrix_mul(m, m)
+        p //= 2
+    return t
+
+def fib(n):
+    return pow(n)[1][0]
+
+k=int(input())
+print(fib(k))
