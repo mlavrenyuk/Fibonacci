@@ -1,0 +1,14 @@
+import time
+def fib(n):    
+    if n == 1 or n == 2:
+        return 1
+    return fib(n-1)+fib(n-2)
+
+def main():
+    n=35
+    fib(n)
+
+if __name__ == '__main__':
+    begin = time.time()
+    main()
+print 'total run time is', time.time()-begin
